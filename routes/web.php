@@ -2,14 +2,18 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::view('/', 'welcome');
 
-Route::view('dashboard', 'dashboard')
+
+Route::get('arsip', App\Livewire\Pages\Arsip\Index::class)
     ->middleware(['auth', 'verified'])
-    ->name('dashboard');
+    ->name('arsip');
 
-Route::view('profile', 'profile')
+Route::get('kategori', App\Livewire\Pages\Kategori\Index::class)
     ->middleware(['auth'])
-    ->name('profile');
+    ->name('kategori');
 
-require __DIR__.'/auth.php';
+Route::get('profil', App\Livewire\Pages\Profil\Index::class)
+    ->middleware(['auth'])
+    ->name('profil');
+
+require __DIR__ . '/auth.php';
