@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('documents', function (Blueprint $table) {
             $table->id();
             $table->string('slug')->unique();
-            $table->string('nomor_surat')->unique();
-            $table->string('judul');
+            $table->string('nomor_surat')->unique()->index();
+            $table->string('judul')->index();
             $table->text('file_path');
-            $table->text('pengunggah_id');
+            $table->text('editor_id');
             $table->timestamps();
         });
     }

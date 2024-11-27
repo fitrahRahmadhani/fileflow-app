@@ -18,7 +18,7 @@ return new class extends Migration
             $table->timestamps();
         });
         Schema::table('documents', function (Blueprint $table) {
-            $table->foreignId('category_id')->references('id')->on('categories');
+            $table->foreignId('category_id')->references('id')->on('categories')->after('slug');
         });
     }
 
