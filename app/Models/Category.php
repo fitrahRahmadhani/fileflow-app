@@ -12,4 +12,9 @@ class Category extends Model
   {
     return $this->hasMany(Document::class);
   }
+
+  public function getCountDocument()
+  {
+    return $this->documents()->count();
+  }
 }

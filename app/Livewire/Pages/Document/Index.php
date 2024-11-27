@@ -12,15 +12,11 @@ use Livewire\WithoutUrlPagination;
 class Index extends Component
 {
   use WithPagination, WithoutUrlPagination;
+
   #[Layout('layouts.app')]
   #[Title('Arsip')]
 
   public $search;
-
-  public function updatingSearch()
-  {
-    $this->resetPage();
-  }
 
   public function render()
   {
@@ -33,6 +29,6 @@ class Index extends Component
 
     $documents = $query->latest()->paginate(10);
 
-    return view('livewire.pages.document.index', ['documents' => $documents]);
+    return view('livewire.pages.document.index')->with('documents', $documents);
   }
 }

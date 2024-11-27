@@ -81,13 +81,7 @@
                   {{ $document->user->name }}
                 </td>
                 <td class="px-6 py-4">
-                  <a
-                    href="{{ route('admin.intern.show', $document->slug) }}"
-                    target="_blank"
-                    class="btn-light px-2 py-1 text-xs"
-                  >
-                    Detail
-                  </a>
+                  <a href="" target="_blank" class="btn-light px-2 py-1 text-xs">Detail</a>
                 </td>
               </tr>
             @endforeach

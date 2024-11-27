@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 return [
 
@@ -14,7 +16,7 @@ return [
      *
      * Supported: "bottom", "middle" or "top"
      */
-    'alignment' => 'bottom',
+    'alignment' => 'top',
 
     /**
      * Allow users to close toast messages prematurely.
@@ -35,7 +37,7 @@ return [
      *
      * Supported: "center", "left" or "right"
      */
-    'position' => 'right',
+    'position' => 'center',
 
     /**
      * New toasts immediately replace similar ones, ensuring only one toast of a kind is visible at any time.

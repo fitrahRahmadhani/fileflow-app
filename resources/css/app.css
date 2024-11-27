@@ -93,4 +93,47 @@
   .btn-disabled {
     @apply cursor-not-allowed opacity-50;
   }
+
+  /* Input */
+  .input-wrapper {
+    @apply flex w-full flex-col space-y-1;
+  }
+  .input-label {
+    @apply text-base;
+  }
+  .input-label-required {
+    @apply text-base after:ml-0.5 after:text-red-500 after:content-['*'];
+  }
+  .input {
+    @apply w-full rounded-lg border border-neutral-300 px-4 py-2 text-base placeholder-slate-400 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-neutral-500 disabled:border-slate-200 disabled:bg-slate-50 disabled:text-slate-500;
+  }
+  .input-error {
+    @apply w-full rounded-lg border border-red-500 bg-red-50 px-4 py-2 text-base placeholder-red-400 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-red-500 disabled:border-slate-200 disabled:bg-slate-50 disabled:text-slate-500;
+  }
+  .input-disabled {
+    @apply min-h-10 w-full rounded-lg border border-neutral-200 bg-neutral-50 px-4 py-2 text-base text-neutral-500;
+  }
+  .input-info-error {
+    @apply text-sm text-red-500;
+  }
+  .input-file {
+    @apply file:bg-neutral-50 file:text-neutral-400 file:outline-neutral-300 file:hover:bg-neutral-200 file:hover:text-neutral-500;
+  }
+  .input-file-error {
+    @apply file:bg-red-100 file:text-red-400 file:outline-red-300 file:hover:bg-red-200 file:hover:text-red-500;
+  }
+
+  /* Toaster */
+  .toaster {
+    @apply fixed right-8 top-10 z-50 mb-4 flex w-full max-w-xs items-center rounded-lg bg-white p-4 text-neutral-500 shadow-md md:right-10;
+  }
+  .toaster-success {
+    @apply bg-green-100 text-green-500;
+  }
+  .toaster-warning {
+    @apply bg-yellow-100 text-yellow-500;
+  }
+  .toaster-error {
+    @apply bg-red-100 text-red-500;
+  }
 }
