@@ -57,7 +57,7 @@
             </div>
           </div>
         </div>
-        <div class="py-3 sm:flex sm:flex-row-reverse">
+        <div class="pt-3 sm:flex sm:flex-row-reverse">
           <button
             type="button"
             wire:click="destroy"

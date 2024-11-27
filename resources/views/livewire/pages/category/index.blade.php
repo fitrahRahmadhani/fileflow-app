@@ -73,7 +73,10 @@
                   {{ $category->getCountDocument() }}
                 </td>
                 <td class="flex gap-3 px-6 py-4">
-                  <a href="" class="rounded p-1 transition-all duration-300 hover:bg-yellow-50 hover:text-yellow-600">
+                  <a
+                    href="{{ route('categories.edit', $category->slug) }}"
+                    class="rounded p-1 transition-all duration-300 hover:bg-yellow-50 hover:text-yellow-600"
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"

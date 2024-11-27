@@ -18,6 +18,9 @@ Route::get('categories', App\Livewire\Pages\Category\Index::class)
 Route::get('categories/create', App\Livewire\Pages\Category\Create::class)
     ->middleware(['auth', 'verified'])
     ->name('categories.create');
+Route::get('categories/{category:slug}/edit', App\Livewire\Pages\Category\Edit::class)
+    ->middleware(['auth', 'verified'])
+    ->name('categories.edit');
 
 Route::get('profile', App\Livewire\Pages\Profile\Index::class)
     ->middleware(['auth', 'verified'])

@@ -28,11 +28,16 @@ class Index extends Component
     try {
       $this->authorize('delete', Category::class);
       DB::beginTransaction();
-      Category::find($id)->delete();
-      DB::commit();
-      return redirect()->route('categories.index')->success('Kategori berhasil di hapus');
+      $category = Category::find($id);
+      if (!$category->documents()->exists()) {
+        $category->delete();
+        DB::commit();
+        return redirect()->route('categories.index')->success('Kategori berhasil di hapus');
+      } else {
+        Toaster::error('Kategori tidak dapat dihapus karena masih memiliki dokumen');
+      }
     } catch (AuthorizationException $e) {
-      Toaster::error('Anda tidak memiliki akses untuk menghapus kategori');
+      Toaster::info('Anda tidak memiliki akses untuk menghapus kategori');
     } catch (\Exception $e) {
       DB::rollBack();
       Toaster::error('Terjadi kesalahan saat menghapus kategori');

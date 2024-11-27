@@ -4,7 +4,6 @@ namespace App\Livewire\Pages\Category;
 
 use Livewire\Component;
 use App\Models\Category;
-use Illuminate\Support\Str;
 use Livewire\Attributes\Title;
 use Masmerise\Toaster\Toaster;
 use Livewire\Attributes\Layout;
@@ -12,10 +11,12 @@ use Livewire\Attributes\Validate;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Auth\Access\AuthorizationException;
 
-class Create extends Component
+class Edit extends Component
 {
   #[Layout('layouts.app')]
-  #[Title('Buat Kategori')]
+  #[Title('Edit Kategori')]
+
+  public Category $category;
 
   #[Validate('required', message: 'Input field nama kategori tidak boleh kosong')]
   #[Validate('min:3', message: 'Input field nama kategori tidak boleh kurang dari 3 karakter')]
@@ -29,31 +30,37 @@ class Create extends Component
   #[Validate('regex:/^[a-zA-Z1-9\s,.]+$/', message: 'Input field deskripsi kategori hanya boleh mengandung huruf, angka, dan spasi')]
   public $description;
 
-  public function store()
+  public function mount(Category $category)
+  {
+    $this->category = $category;
+    $this->name = $category->nama;
+    $this->description = $category->keterangan;
+  }
+
+  public function update()
   {
     try {
-      $this->authorize('create', Category::class);
+      $this->authorize('update', Category::class);
       DB::beginTransaction();
       $this->validate([
         'name' => ['required', 'string', 'max:255'],
         'description' => ['required', 'string', 'max:255'],
       ]);
-      Category::create([
-        'slug' => Str::random(10),
+      $this->category->update([
         'nama' => $this->name,
         'keterangan' => $this->description
       ]);
       DB::commit();
-      return redirect()->route('categories.index')->success('Kategori baru berhasil dibuat');
+      return redirect()->route('categories.index')->success('Kategori berhasil diubah');
     } catch (AuthorizationException $e) {
-      Toaster::info('Anda tidak memiliki akses untuk membuat kategori');
+      Toaster::info('Anda tidak memiliki akses untuk mengubah kategori');
     } catch (\Exception $e) {
       DB::rollBack();
-      Toaster::error('Gagal membuat kategori');
+      Toaster::error('Gagal mengubah kategori');
     }
   }
   public function render()
   {
-    return view('livewire.pages.category.create');
+    return view('livewire.pages.category.edit');
   }
 }

@@ -41,7 +41,7 @@
             </div>
           </div>
         </div>
-        <div class="px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+        <div class="pt-3 sm:flex sm:flex-row-reverse">
           <button
             type="submit"
             wire:click="closeModal"
