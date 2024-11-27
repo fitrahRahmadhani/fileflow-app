@@ -4,10 +4,14 @@ namespace App\Livewire\Pages\Category;
 
 use Livewire\Component;
 use App\Models\Category;
+use Livewire\Attributes\On;
 use Livewire\WithPagination;
 use Livewire\Attributes\Title;
+use Masmerise\Toaster\Toaster;
 use Livewire\Attributes\Layout;
+use Illuminate\Support\Facades\DB;
 use Livewire\WithoutUrlPagination;
+use Illuminate\Auth\Access\AuthorizationException;
 
 class Index extends Component
 {
@@ -17,6 +21,23 @@ class Index extends Component
   #[Title('Kategori')]
 
   public $search;
+
+  #[On('destroy')]
+  public function destroy($id)
+  {
+    try {
+      $this->authorize('delete', Category::class);
+      DB::beginTransaction();
+      Category::find($id)->delete();
+      DB::commit();
+      return redirect()->route('categories.index')->success('Kategori berhasil di hapus');
+    } catch (AuthorizationException $e) {
+      Toaster::error('Anda tidak memiliki akses untuk menghapus kategori');
+    } catch (\Exception $e) {
+      DB::rollBack();
+      Toaster::error('Terjadi kesalahan saat menghapus kategori');
+    }
+  }
 
   public function render()
   {

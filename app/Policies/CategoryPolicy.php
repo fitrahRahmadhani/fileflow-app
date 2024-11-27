@@ -41,13 +41,13 @@ class CategoryPolicy
   //     //
   // }
 
-  // /**
-  //  * Determine whether the user can delete the model.
-  //  */
-  // public function delete(User $user, Category $category): bool
-  // {
-  //     //
-  // }
+  /**
+   * Determine whether the user can delete the model.
+   */
+  public function delete(User $user): bool
+  {
+    return Auth::check();
+  }
 
   // /**
   //  * Determine whether the user can restore the model.
