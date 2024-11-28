@@ -32,7 +32,7 @@
     </div>
     <form
       enctype="multipart/form-data"
-      wire:submit.prevent="store"
+      wire:submit.prevent="update"
       class="content-wrapper flex-auto flex-col justify-between"
     >
       <div class="space-y-3">
@@ -61,7 +61,7 @@
             name="title"
             id="title"
             autocomplete="off"
-            placeholder="Masukkan judul surat"
+            placeholder="Masukkan title surat"
             class="@error('title') input-error @else input @enderror"
             wire:model.live.debounce.800ms="title"
           />
@@ -78,12 +78,14 @@
               name="category"
               id="category"
               wire:model.live.debounce.800ms="selectedCategory"
-              class="@error('category') input-error @else input @enderror appearance-none"
+              class="@error('selectedCategory') input-error @else input @enderror appearance-none"
             >
               <option value="">Pilih Kategori Surat</option>
 
               @foreach ($categories as $category)
-                <option value="{{ $category->id }}">{{ $category->nama }}</option>
+                <option value="{{ $category->id }}" @if ($category->id == $selectedCategory) selected @endif>
+                  {{ $category->nama }}
+                </option>
               @endforeach
             </select>
             <div class="pointer-events-none absolute inset-y-0 right-0 top-0 flex items-center pr-3"></div>
@@ -103,20 +105,20 @@
           x-on:livewire-upload-error="uploading = false"
           x-on:livewire-upload-progress="progress = $event.detail.progress"
         >
-          <label for="document" class="input-wrapper">
+          <label for="newDocument" class="input-wrapper">
             <span class="input-label-required">Unggah Dokumen</span>
-            <div class="@error('document') input-error @else input @enderror relative">
+            <div class="@error('newDocument') input-error @else input @enderror relative">
               <input
                 type="file"
-                name="document"
-                id="document"
+                name="newDocument"
+                id="newDocument"
                 autocomplete="off"
-                class="caption @error('document') input-file-error @else input-file @enderror file:absolute file:right-2 file:top-[7px] file:rounded-md file:border-transparent file:px-4 file:outline file:outline-[1px] file:transition file:duration-300"
-                wire:model="document"
+                class="caption @error('newDocument') input-file-error @else input-file @enderror file:absolute file:right-2 file:top-[7px] file:rounded-md file:border-transparent file:px-4 file:outline file:outline-[1px] file:transition file:duration-300"
+                wire:model="newDocument"
               />
             </div>
 
-            @error('document')
+            @error('newDocument')
               <span class="input-info-error">{{ $message }}</span>
             @else
               <p class="mt-1 text-sm italic text-neutral-500">Hanya menerima file PDF, maksimal 10 MB</p>

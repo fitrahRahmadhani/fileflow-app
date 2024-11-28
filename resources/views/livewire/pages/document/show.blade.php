@@ -53,7 +53,7 @@
       </div>
       <iframe class="h-[500px]" src="{{ Storage::url($document->file_path) }}" frameborder="0"></iframe>
       <div class="flex w-full justify-end gap-4">
-        <a href="" class="btn-secondary">
+        <a href="{{ route('documents.edit', $document->slug) }}" class="btn-secondary">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -70,7 +70,7 @@
           </svg>
           Edit
         </a>
-        <button class="btn-secondary">
+        <button wire:click="download" class="btn-secondary">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

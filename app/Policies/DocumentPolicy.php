@@ -36,18 +36,18 @@ class DocumentPolicy
     /**
      * Determine whether the user can update the model.
      */
-    // public function update(User $user, Document $document): bool
-    // {
-    //     //
-    // }
+    public function update(User $user, Document $document): bool
+    {
+        return $user->id == $document->editor_id;
+    }
 
     /**
      * Determine whether the user can delete the model.
      */
-    // public function delete(User $user, Document $document): bool
-    // {
-    //     //
-    // }
+    public function delete(User $user, Document $document): bool
+    {
+        return $user->id == $document->editor_id;
+    }
 
     /**
      * Determine whether the user can restore the model.

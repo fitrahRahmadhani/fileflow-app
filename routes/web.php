@@ -8,16 +8,15 @@ require __DIR__ . '/auth.php';
 Route::get('documents', App\Livewire\Pages\Document\Index::class)
     ->middleware(['auth', 'verified'])
     ->name('documents.index');
-
 Route::get('documents/create', App\Livewire\Pages\Document\Create::class)
     ->middleware(['auth', 'verified'])
     ->name('documents.create');
-
 Route::get('documents/show/{document:slug}', App\Livewire\Pages\Document\Show::class)
     ->middleware(['auth', 'verified'])
     ->name('documents.show');
-
-
+Route::get('documents/{document:slug}/edit', App\Livewire\Pages\Document\Edit::class)
+    ->middleware(['auth', 'verified'])
+    ->name('documents.edit');
 
 Route::get('categories', App\Livewire\Pages\Category\Index::class)
     ->middleware(['auth', 'verified'])
