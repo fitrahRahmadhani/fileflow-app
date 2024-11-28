@@ -121,7 +121,7 @@
                 alt=""
               />
               <div>
-                <h3 class="sub-heading">{{ $user->name }}</h3>
+                <h3 class="sub-heading">{{ $user->nama }}</h3>
                 <p class="caption text-neutral-500">{{ $user->email }}</p>
               </div>
             </div>
@@ -160,7 +160,7 @@
           {{-- Data --}}
           <div class="mt-4 grid w-full grid-cols-2 gap-4">
             {{-- Nama --}}
-            <livewire:components.disabled-input label="Nama" content="{{ $user->name }}" />
+            <livewire:components.disabled-input label="Nama" content="{{ $user->nama }}" />
             {{-- Email --}}
             <livewire:components.disabled-input label="Email" content="{{ $user->email }}" />
 
@@ -183,19 +183,19 @@
             </label>
 
             {{-- Alamat --}}
-            <label for="address" class="input-wrapper">
+            <label for="alamat" class="input-wrapper">
               <span class="input-label-required">Alamat</span>
               <input
                 type="text"
-                name="address"
-                id="address"
+                name="alamat"
+                id="alamat"
                 autocomplete="off"
                 placeholder="Masukkan alamat"
-                class="@error('address') input-error @else input @enderror"
-                wire:model.live.debounce.800ms="address"
+                class="@error('alamat') input-error @else input @enderror"
+                wire:model.live.debounce.800ms="alamat"
               />
 
-              @error('address')
+              @error('alamat')
                 <span class="input-info-error">{{ $message }}</span>
               @enderror
             </label>
@@ -240,7 +240,7 @@
             <div class="flex flex-col gap-1">
               <p class="text-sm text-neutral-500">Nama</p>
               <p class="text-sm font-medium text-neutral-600 md:text-base">
-                {{ $user->name ?? '-' }}
+                {{ $user->nama ?? '-' }}
               </p>
             </div>
 
@@ -264,7 +264,7 @@
             <div class="flex flex-col gap-1">
               <p class="text-sm text-neutral-500">Alamat</p>
               <p class="text-sm font-medium text-neutral-600 md:text-base">
-                {{ $user->address ?? '-' }}
+                {{ $user->alamat ?? '-' }}
               </p>
             </div>
           </div>

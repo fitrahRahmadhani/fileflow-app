@@ -33,7 +33,7 @@ class Index extends Component
   #[Validate('min:10', message: 'Input field alamat tidak boleh kurang dari 10 karakter')]
   #[Validate('max:100', message: 'Input field alamat tidak boleh lebih dari 100 karakter')]
   #[Validate('regex:/^[a-zA-Z0-9\s,.-]+$/', message: 'Input field alamat hanya boleh mengandung huruf, angka, dan spasi')]
-  public $address;
+  public $alamat;
 
   // Validasi untuk field temp profile_picture
   #[Validate('image', message: 'Input field foto profil harus berupa gambar dengan format jpg, jpeg, atau png')]
@@ -48,7 +48,7 @@ class Index extends Component
   {
     $this->user = Auth::user();
     $this->nim = $this->user->nim;
-    $this->address = $this->user->address;
+    $this->alamat = $this->user->alamat;
   }
 
   public function togglePhotoEditor()
@@ -98,11 +98,11 @@ class Index extends Component
       DB::beginTransaction();
       $this->validate([
         'nim' => ['required',  'min:3', 'max:50', 'regex:/^[a-zA-Z0-9]+$/'],
-        'address' => ['required', 'min:10', 'max:100', 'regex:/^[a-zA-Z0-9\s,.-]+$/'],
+        'alamat' => ['required', 'min:10', 'max:100', 'regex:/^[a-zA-Z0-9\s,.-]+$/'],
       ]);
       $this->user->update([
         'nim' => $this->nim,
-        'address' => $this->address
+        'alamat' => $this->alamat
       ]);
       DB::commit();
       return redirect(route('profile.index'))->success('Profil berhasil diperbarui');

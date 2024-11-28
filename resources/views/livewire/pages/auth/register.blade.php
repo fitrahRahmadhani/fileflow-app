@@ -9,7 +9,7 @@ use Livewire\Attributes\Layout;
 use Livewire\Volt\Component;
 
 new #[Layout('layouts.guest')] class extends Component {
-  public string $name = '';
+  public string $nama = '';
   public string $email = '';
   public string $password = '';
   public string $password_confirmation = '';
@@ -20,7 +20,7 @@ new #[Layout('layouts.guest')] class extends Component {
   public function register(): void
   {
     $validated = $this->validate([
-      'name' => ['required', 'string', 'max:255'],
+      'nama' => ['required', 'string', 'max:255'],
       'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
       'password' => ['required', 'string', 'confirmed', Rules\Password::defaults()],
     ]);
@@ -39,18 +39,18 @@ new #[Layout('layouts.guest')] class extends Component {
   <form wire:submit="register">
     <!-- Name -->
     <div>
-      <x-input-label for="name" :value="__('Name')" />
+      <x-input-label for="nama" :value="__('Name')" />
       <x-text-input
-        wire:model="name"
-        id="name"
+        wire:model="nama"
+        id="nama"
         class="mt-1 block w-full"
         type="text"
-        name="name"
+        name="nama"
         required
         autofocus
-        autocomplete="name"
+        autocomplete="nama"
       />
-      <x-input-error :messages="$errors->get('name')" class="mt-2" />
+      <x-input-error :messages="$errors->get('nama')" class="mt-2" />
     </div>
 
     <!-- Email Address -->

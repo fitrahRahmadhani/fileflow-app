@@ -11,17 +11,17 @@ class Document extends Model
   // Relasi
   public function category()
   {
-    return $this->belongsTo(Category::class);
+    return $this->belongsTo(Category::class, 'category_id');
   }
 
   public function user()
   {
-    return $this->belongsTo(User::class);
+    return $this->belongsTo(User::class, 'editor_id');
   }
 
   // 
   public function getFormattedDateAttribute()
   {
-    return $this->created_at->format('d F Y');
+    return $this->created_at->format('d-m-Y H:i');
   }
 }
