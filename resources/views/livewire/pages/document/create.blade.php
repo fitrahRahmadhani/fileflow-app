@@ -1,7 +1,34 @@
 <div class="dashboard-container">
   <div class="section-wrapper flex flex-col">
-    <div class="title-wrapper">
+    <div class="title-wrapper flex-col items-start">
       <h2 class="heading">Tambah Dokumen</h2>
+      ol class="flex items-center whitespace-nowrap">
+        <li class="inline-flex items-center">
+          <a
+            class="flex items-center text-sm text-gray-400 transition duration-300 hover:font-medium hover:text-gray-600"
+            href="{{ route('documents.index') }}"
+          >
+            Arsip
+          </a>
+          <svg
+            class="mx-2 size-4 shrink-0 text-gray-400"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="m9 18 6-6-6-6"></path>
+          </svg>
+        </li>
+        <li class="inline-flex items-center">
+          <div class="flex items-center text-sm font-medium text-gray-500">Tambah Arspi</div>
+        </li>
+      </ol>
     </div>
     <form
       enctype="multipart/form-data"

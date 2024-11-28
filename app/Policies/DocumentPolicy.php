@@ -20,10 +20,10 @@ class DocumentPolicy
     /**
      * Determine whether the user can view the model.
      */
-    // public function view(User $user, Document $document): bool
-    // {
-    //     //
-    // }
+    public function view(User $user): bool
+    {
+        return Auth::check();
+    }
 
     /**
      * Determine whether the user can create models.

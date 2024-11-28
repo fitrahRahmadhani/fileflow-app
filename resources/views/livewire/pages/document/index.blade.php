@@ -79,7 +79,13 @@
                 </td>
                 <td class="px-4 py-4">{{ $document->user->nama }}</td>
                 <td class="px-6 py-4">
-                  <a href="" target="_blank" class="btn-light px-2 py-1 text-xs">Detail</a>
+                  <a
+                    href="{{ route('documents.show', $document->slug) }}"
+                    target="_blank"
+                    class="btn-light px-2 py-1 text-xs"
+                  >
+                    Detail
+                  </a>
                 </td>
               </tr>
             @endforeach

@@ -60,7 +60,7 @@ class Create extends Component
       ]);
 
       $fileName = 'ARSIP' . '-' . now()->format('Y-m-d-H-i-s') . '.' . $this->document->getClientOriginalExtension();
-      $documentPath = Storage::disk('private')->putFileAs('documents', $this->document, $fileName);
+      $documentPath = Storage::disk('public')->putFileAs('documents', $this->document, $fileName);
       Document::create([
         'slug' => Str::random(10),
         'judul' => $this->title,
