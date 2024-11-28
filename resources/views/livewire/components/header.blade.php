@@ -8,7 +8,7 @@
     <div x-on:click="isOpen = !isOpen" class="mr-4 flex gap-2 md:mr-0">
       <img
         class="h-12 w-12 rounded-full object-cover"
-        src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg"
+        src="{{ $user->profile_picture ? asset('storage/' . $user->profile_picture) : asset('storage/profile-pictures/default-profile-picture.jpg') }}"
         alt="Foto Profile"
       />
       <div
@@ -40,7 +40,7 @@
           <div class="mb-2 flex items-center gap-2">
             <img
               class="h-10 w-10 rounded-full object-cover"
-              src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg"
+              src="{{ $user->profile_picture ? asset('storage/' . $user->profile_picture) : asset('storage/profile-pictures/default-profile-picture.jpg') }}"
               alt="Foto Profile"
             />
             <div>
@@ -91,4 +91,3 @@
   </div>
 </header>
 {{-- End Header --}}
-
