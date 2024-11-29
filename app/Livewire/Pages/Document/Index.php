@@ -23,6 +23,11 @@ class Index extends Component
 
   public $search;
 
+  public function updateSearch()
+  {
+    $this->resetPage();
+  }
+
   #[On('destroy')]
   public function destroy($id)
   {
@@ -35,7 +40,7 @@ class Index extends Component
       DB::commit();
       return redirect()->route('documents.index')->success('Dokumen berhasil dihapus');
     } catch (AuthorizationException $e) {
-      Toaster::info('Anda tidak memiliki akses untuk menghapus arsip');
+      Toaster::warning('Anda tidak memiliki akses untuk menghapus arsip');
     } catch (\Exception $e) {
       DB::rollBack();
       Toaster::error('Terjadi kesalahan saat menghapus arsip');
@@ -51,7 +56,7 @@ class Index extends Component
         ->orWhere('nomor_surat', 'like', '%' . $this->search . '%');
     }
 
-    $documents = $query->latest()->paginate(10);
+    $documents = $query->latest()->paginate(5);
 
     return view('livewire.pages.document.index')->with('documents', $documents);
   }

@@ -1,7 +1,7 @@
 <div class="dashboard-container">
   <div class="section-wrapper flex flex-col">
     <div class="title-wrapper flex-col items-start">
-      <h2 class="heading">Tambah Dokumen</h2>
+      <h2 class="heading">Tambah Arsip</h2>
       <ol class="flex items-center whitespace-nowrap">
         <li class="inline-flex items-center">
           <a

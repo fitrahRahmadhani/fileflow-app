@@ -53,7 +53,7 @@ class Edit extends Component
       DB::commit();
       return redirect()->route('categories.index')->success('Kategori berhasil diubah');
     } catch (AuthorizationException $e) {
-      Toaster::info('Anda tidak memiliki akses untuk mengubah kategori');
+      Toaster::warning('Anda tidak memiliki akses untuk mengubah kategori');
     } catch (\Exception $e) {
       DB::rollBack();
       Toaster::error('Gagal mengubah kategori');

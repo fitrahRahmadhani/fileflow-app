@@ -4,7 +4,13 @@
     x-data="{ isOpen: false }"
     class="relative mx-auto flex h-[70px] items-center justify-between md:h-[90px] md:px-4 lg:max-w-[1440px] lg:px-0"
   >
-    <img class="ml-4 h-10 md:h-12" src="{{ asset('assets/SIG_Logo.svg') }}" alt="logo SIG" />
+    <div class="flex items-center gap-2 md:gap-4">
+      <img class="ml-4 h-10 md:h-12" src="{{ asset('assets/logo/logo_kabupaten_malang.svg') }}" alt="logo SIG" />
+      <div class="space-y-0">
+        <p class="text-sm">Arsip</p>
+        <p class="font-semibold">Desa Karangduren</p>
+      </div>
+    </div>
     <div x-on:click="isOpen = !isOpen" class="mr-4 flex gap-2 md:mr-0">
       <img
         class="h-12 w-12 rounded-full object-cover"

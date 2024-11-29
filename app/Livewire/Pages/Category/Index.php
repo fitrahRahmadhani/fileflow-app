@@ -32,16 +32,21 @@ class Index extends Component
       if (!$category->documents()->exists()) {
         $category->delete();
         DB::commit();
-        return redirect()->route('categories.index')->success('Kategori berhasil di hapus');
+        return redirect()->route('categsories.index')->success('Kategori berhasil di hapus');
       } else {
         Toaster::error('Kategori tidak dapat dihapus karena masih memiliki dokumen');
       }
     } catch (AuthorizationException $e) {
-      Toaster::info('Anda tidak memiliki akses untuk menghapus kategori');
+      Toaster::warning('Anda tidak memiliki akses untuk menghapus kategori');
     } catch (\Exception $e) {
       DB::rollBack();
       Toaster::error('Terjadi kesalahan saat menghapus kategori');
     }
+  }
+
+  public function updateSearch()
+  {
+    $this->resetPage();
   }
 
   public function render()

@@ -72,7 +72,7 @@ class Create extends Component
       DB::commit();
       return redirect()->route('documents.index')->success('Dokumen berhasil dibuat');
     } catch (AuthorizationException $e) {
-      Toaster::info('Anda tidak memiliki akses untuk membuat arsip');
+      Toaster::warning('Anda tidak memiliki akses untuk membuat arsip');
     } catch (\Exception $e) {
       DB::rollBack();
       Toaster::error('Gagal membuat arsip');

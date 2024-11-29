@@ -1,7 +1,7 @@
 <div class="dashboard-container">
   <div class="section-wrapper flex flex-col">
     <div class="title-wrapper flex-col items-start">
-      <h2 class="heading">Tambah Dokumen</h2>
+      <h2 class="heading">Edit Arsip</h2>
       <ol class="flex items-center whitespace-nowrap">
         <li class="inline-flex items-center">
           <a
@@ -26,7 +26,7 @@
           </svg>
         </li>
         <li class="inline-flex items-center">
-          <div class="flex items-center text-sm font-medium text-gray-500">Tambah Arspi</div>
+          <div class="flex items-center text-sm font-medium text-gray-500">Edit Arspi</div>
         </li>
       </ol>
     </div>

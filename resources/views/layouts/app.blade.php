@@ -30,7 +30,11 @@
         </section>
       </main>
       {{-- End Main Section --}}
+      {{-- Start Footer --}}
+      <x-footer />
+      {{-- End Footer --}}
     </div>
+
     <x-toaster-hub />
   </body>
 </html>

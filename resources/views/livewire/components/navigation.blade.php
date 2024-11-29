@@ -1,6 +1,6 @@
 <div>
   {{-- Desktop Navbar --}}
-  <nav class="hidden h-[600px] w-[300px] flex-col justify-between rounded-xl bg-white p-4 lg:flex">
+  <nav class="hidden h-[690px] w-[300px] flex-col justify-between rounded-xl bg-white p-4 lg:flex">
     <ul class="flex flex-col gap-4">
       <li>
         <a

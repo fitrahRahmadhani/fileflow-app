@@ -79,7 +79,7 @@ class Edit extends Component
       DB::commit();
       return redirect()->route('documents.index')->success('Dokumen berhasil diubah');
     } catch (AuthorizationException $e) {
-      Toaster::info('Anda tidak memiliki akses untuk mengubah arsip');
+      Toaster::warning('Anda tidak memiliki akses untuk mengubah arsip');
     } catch (\Exception $e) {
       DB::rollBack();
       Toaster::error('Gagal mengubah arsip');

@@ -46,7 +46,7 @@ class Create extends Component
       DB::commit();
       return redirect()->route('categories.index')->success('Kategori baru berhasil dibuat');
     } catch (AuthorizationException $e) {
-      Toaster::info('Anda tidak memiliki akses untuk membuat kategori');
+      Toaster::warning('Anda tidak memiliki akses untuk membuat kategori');
     } catch (\Exception $e) {
       DB::rollBack();
       Toaster::error('Gagal membuat kategori');

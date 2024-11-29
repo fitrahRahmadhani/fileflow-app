@@ -36,7 +36,7 @@
 
   /* Layout */
   .dashboard-container {
-    @apply flex min-h-[600px] w-full flex-col gap-8 rounded-none bg-white p-4 md:p-10 lg:w-[1100px] lg:rounded-xl;
+    @apply flex min-h-[690px] w-full flex-col gap-8 rounded-none bg-white p-4 md:p-10 lg:w-[1100px] lg:rounded-xl;
   }
   .section-wrapper {
     @apply h-full space-y-3 divide-y divide-neutral-100;
